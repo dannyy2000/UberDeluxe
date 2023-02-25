@@ -1,5 +1,6 @@
 package africa.semicolon.uberdeluxe.data.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,13 +16,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class AppUser {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String password;
     private String email;
-    @Transient
-    private MultipartFile profileImage;
-    private LocalDateTime createdAt;
+    private String profileImage;
+    private String createdAt;
 }
