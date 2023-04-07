@@ -1,4 +1,4 @@
-package africa.semicolon.uberdeluxe.data.dtos.requests.DriverRequest;
+package africa.semicolon.uberdeluxe.data.dtos.requests.driverRequest;
 
 import lombok.*;
 

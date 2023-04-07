@@ -1,6 +1,5 @@
 package africa.semicolon.uberdeluxe.mapper;
 
-import africa.semicolon.uberdeluxe.data.dtos.requests.DriverRequest.RegisterDriverRequest;
 import africa.semicolon.uberdeluxe.data.dtos.requests.passengerRequest.RegisterPassengerRequest;
 import africa.semicolon.uberdeluxe.data.models.AppUser;
 import lombok.NoArgsConstructor;

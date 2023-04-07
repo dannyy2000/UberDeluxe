@@ -1,13 +1,18 @@
 package africa.semicolon.uberdeluxe.service;
 
-import africa.semicolon.uberdeluxe.data.dtos.requests.DriverRequest.GetDriverIdRequest;
-import africa.semicolon.uberdeluxe.data.dtos.requests.DriverRequest.RegisterDriverRequest;
+import africa.semicolon.uberdeluxe.data.dtos.requests.driverRequest.RegisterDriverRequest;
 import africa.semicolon.uberdeluxe.data.dtos.response.driverResponse.RegisterDriverResponse;
-import org.springframework.web.multipart.MultipartFile;
+import africa.semicolon.uberdeluxe.data.models.Driver;
+
+import java.util.Optional;
 
 public interface DriverService {
 
-     RegisterDriverResponse register(RegisterDriverRequest registerDriverRequest, MultipartFile licenseImage);
+     RegisterDriverResponse register(RegisterDriverRequest registerDriverRequest);
+
+     Optional<Driver> getDriverBy(Long driverId);
+
+     void saveDriver(Driver driver);
 
 //     Driver getDriverById(Long id);
 //

@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -22,7 +23,11 @@ public class AppUser {
     private Long id;
     private String name;
     private String password;
+    @Column(unique = true)
     private String email;
+    @ElementCollection
+    private Set<Role> roles;
     private String profileImage;
     private String createdAt;
+    private Boolean isEnabled;
 }

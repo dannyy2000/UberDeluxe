@@ -1,4 +1,5 @@
 package africa.semicolon.uberdeluxe.Controller;
+import africa.semicolon.uberdeluxe.data.dtos.requests.BookRideRequest;
 import africa.semicolon.uberdeluxe.data.dtos.requests.passengerRequest.RegisterPassengerRequest;
 import africa.semicolon.uberdeluxe.data.dtos.response.ApiResponse;
 import africa.semicolon.uberdeluxe.data.dtos.response.passengerResponse.RegisterPassengerResponse;
@@ -49,6 +50,12 @@ public class PassengerController {
     public ResponseEntity<?> getAllPassengers(@PathVariable int pageNumber){
         var response = passengerService.getAllPassenger(pageNumber);
         return ResponseEntity.ok(response.getContent());
+    }
+
+    @PostMapping("/book")
+    public ResponseEntity<ApiResponse> bookRide(@RequestBody BookRideRequest bookRideRequest){
+            ApiResponse apiResponse = passengerService.bookRide(bookRideRequest);
+            return ResponseEntity.status(HttpStatus.OK).body(apiResponse);
     }
 
 

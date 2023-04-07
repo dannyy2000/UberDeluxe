@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class RegisterPassengerResponse {
     private String message;
-    private int code;
+     private int code;
     private boolean isSuccessful;
     private Long id;
 

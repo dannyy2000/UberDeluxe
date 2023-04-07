@@ -22,7 +22,8 @@ public class Driver {
     private String licenseId;
     private String licenseImage;
     private int age;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OnDelete(action =OnDeleteAction.CASCADE)
 //    @OnDelete(action = OnDeleteAction.CASCADE)
     private Referee referee;
     @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})

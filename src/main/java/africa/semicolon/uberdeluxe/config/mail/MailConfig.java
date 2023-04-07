@@ -1,4 +1,4 @@
-package africa.semicolon.uberdeluxe.config;
+package africa.semicolon.uberdeluxe.config.mail;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

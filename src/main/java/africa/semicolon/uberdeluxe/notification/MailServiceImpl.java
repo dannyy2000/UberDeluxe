@@ -1,6 +1,6 @@
 package africa.semicolon.uberdeluxe.notification;
 
-import africa.semicolon.uberdeluxe.config.MailConfig;
+import africa.semicolon.uberdeluxe.config.mail.MailConfig;
 import africa.semicolon.uberdeluxe.data.dtos.requests.EmailNotificationRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,23 +12,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@AllArgsConstructor
 @Slf4j
-public class MailJetMailServiceImpl implements MailService{
+@AllArgsConstructor
+public class MailServiceImpl implements MailService {
+     private final MailConfig mailConfig;
 
-    private final MailConfig mailConfig;
 
     @Override
     public String sendHtmlMail(EmailNotificationRequest request) {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("api_key",mailConfig.getApiKey());
+        headers.set("api-key",mailConfig.getApiKey());
         HttpEntity<EmailNotificationRequest> requestEntity = new HttpEntity<>(request,headers);
 
         ResponseEntity<String> response =
-                restTemplate.postForEntity(mailConfig.getMailUrl(),requestEntity, String.class);
-         log.info("res->{}",response);
-         return response.getBody();
+                restTemplate.postForEntity(mailConfig.getMailUrl(),requestEntity,String.class);
+        log.info("res-{}",response);
+        return response.getBody();
     }
 }

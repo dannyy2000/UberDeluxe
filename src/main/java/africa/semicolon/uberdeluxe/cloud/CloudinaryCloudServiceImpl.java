@@ -18,8 +18,8 @@ import java.util.Map;
 @Slf4j
 @Service
 public class CloudinaryCloudServiceImpl implements CloudService{
-    @Autowired
-    private Cloudinary cloudinary;
+
+    private final Cloudinary cloudinary;
 
     @Override
     public String upload(MultipartFile image) {
